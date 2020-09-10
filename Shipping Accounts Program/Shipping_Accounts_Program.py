@@ -33,9 +33,10 @@ def already_acc(name):
         
 #Function to create an account         
 def create_acc():
-   create_username = input("Enter username to create your account : ").lower().strip()
+   create_username = input("\nEnter username to create your account : ").lower().strip()
    users_list.append(create_username)
-   print("Cogratulations..Your account is created")
+   print("Cogratulations..Your account is created!")
+   return create_username
    
 #Function if don't want to create an account
 def dont_create_acc():
@@ -44,7 +45,7 @@ def dont_create_acc():
 #Getting user input. if user already have an account or wants to create an account      
 ask_for_acc = input("if you have account then type (y).\nif you want to create account then type (c)\nto exit type (q) : ").lower().strip()
 if ask_for_acc.startswith('y'):
-    username = input("Enter your Username : ").lower().strip()
+    username = input("\nEnter your Username : ").lower().strip()
     if username not in users_list:
         ask_again = input("\nSorry, You don't have an account.!\nif you want to create account type (y)\nif you don't want to create account type (n) : ").lower().strip()
         if ask_again.startswith('y'):
@@ -56,7 +57,8 @@ if ask_for_acc.startswith('y'):
         
 #For create an account           
 if ask_for_acc.startswith('c'):
-    create_acc()
+    username = create_acc()
+    already_acc(username)
     
 #For exit and if don't want to create an account
 if ask_for_acc.startswith('q'):
